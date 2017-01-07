@@ -14,7 +14,7 @@
 #  limitations under the License. See accompanying LICENSE file.
 #
 
-namespace java org.dmir.storm.yarn.generated
+namespace java com.yahoo.storm.yarn.generated
 
 service StormMaster {
   // Storm configuration

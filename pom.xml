@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dmir</groupId>
+    <groupId>com.yahoo.storm.yarn</groupId>
     <artifactId>storm-yarn</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>stormOnYARNwithDRS</name>
