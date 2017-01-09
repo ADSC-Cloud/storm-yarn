@@ -18,24 +18,21 @@ master.thrift.port: 9000
 master.initial-num-supervisors: 1
 master.container.priority: 0
 master.container.size-mb: 4096
-#5120
 master.heartbeat.interval.millis: 1000
 master.timeout.secs: 1000
 yarn.report.wait.millis: 10000
 nimbusui.startup.ms: 10000
 
 #tkl
-#nimbus.thrift.transport: "org.apache.storm.security.auth.SimpleTransportPlugin"
 storm.thrift.transport: "org.apache.storm.security.auth.SimpleTransportPlugin"
-#nimbus.thrift.port: 6627
-#nimbus.queue.size: 100000
-#nimbus.thrift.threads: 64
-#nimbus.thrift.max_buffer_size: 1048576
+nimbus.thrift.port: 6627
+nimbus.queue.size: 100000
+nimbus.thrift.threads: 64
+nimbus.thrift.max_buffer_size: 1048576
 
 #tkl
 drpc.thrift.transport: "org.apache.storm.security.auth.SimpleTransportPlugin"
 drpc.port: 9000
-#3772
 drpc.queue.size: 128
 drpc.worker.threads: 64
 drpc.max_buffer_size: 1048576
@@ -48,7 +45,6 @@ drpc.max_buffer_size: 1048576
 ui.port: 7070
 
 storm.messaging.transport: "org.apache.storm.messaging.netty.Context"
-#storm.messaging.transport: "backtype.storm.messaging.netty.Context"
 storm.messaging.netty.buffer_size: 1048576
 storm.messaging.netty.max_retries: 100
 storm.messaging.netty.min_wait_ms: 1000

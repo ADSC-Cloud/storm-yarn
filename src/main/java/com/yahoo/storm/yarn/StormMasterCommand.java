@@ -23,9 +23,7 @@ import org.apache.storm.thrift.TException;
 import org.apache.storm.thrift.transport.TTransportException;
 import org.json.simple.JSONValue;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;//tkl
-//import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.LogManager;
+import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.FileWriter;

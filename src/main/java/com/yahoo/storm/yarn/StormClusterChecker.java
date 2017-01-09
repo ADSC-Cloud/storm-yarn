@@ -8,9 +8,7 @@ import org.apache.storm.utils.NimbusClient;
 import org.apache.hadoop.yarn.api.records.Container;
 import org.apache.storm.thrift.TException;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;//tkl
-//import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.LogManager;
+import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -21,11 +19,9 @@ import java.util.Map;
 class StormClusterChecker extends Thread {
 
     private static Logger LOG = LoggerFactory.getLogger(StormClusterChecker.class);
-    //private static final Logger LOG = LogManager.getLogger(StormClusterChecker.class);//tkl
     private Map<String, Object> stormConf;
     private final StormMasterServerHandler master;
     private Nimbus.Iface nimbus;
-    //private boolean flag = false;
 
     public StormClusterChecker(Map<String, Object> stormConf, StormMasterServerHandler master) {
         this.stormConf = stormConf;

@@ -40,8 +40,6 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-//import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.LogManager;
 
 class StormAMRMClient extends AMRMClientImpl<ContainerRequest> {
     private static final Logger LOG = LoggerFactory.getLogger(StormAMRMClient.class);
@@ -86,12 +84,7 @@ class StormAMRMClient extends AMRMClientImpl<ContainerRequest> {
             while (it.hasNext()) {
                 if (it.next().getId().equals(status.getContainerId())) {
                     it.remove();
-                    //LOG.info("Remove completed container {}", status.getContainerId());
-                    //tkl
-                    /*LOG.info("Remove completed container getContainerId {}", status.getContainerId());
-                    LOG.info("Remove completed container getDiagnostics {}", status.getDiagnostics());
-                    LOG.info("Remove completed container getExitStatus {}", status.getExitStatus());
-                    LOG.info("Remove completed container getState {}", status.getState());*/
+                    LOG.info("Remove completed container {}", status.getContainerId());
                     break;
                 }
             }
@@ -232,9 +225,7 @@ class StormAMRMClient extends AMRMClientImpl<ContainerRequest> {
         String stormHomeInZip = Util.getStormHomeInZip(fs, zip, stormVersion.version());
         //tkl///////////////////
         String appHome = Util.getApplicationHomeForId(appAttemptId.toString());
-        LOG.info("getApplicationHomeForId: "+appHome);//tkl
-        String containerHome = appHome + Path.SEPARATOR + container.getId().getContainerId();//tkl.getId();
-        LOG.info("containerHome: "+containerHome);//tklworkingDirectory+"/"/*tkl*/+
+        String containerHome = appHome + Path.SEPARATOR + container.getId().getContainerId();//tkl
         Map supervisorConf = new HashMap(this.storm_conf);
 
         //tkl
@@ -244,12 +235,10 @@ class StormAMRMClient extends AMRMClientImpl<ContainerRequest> {
         Path confDst = Util.createConfigurationFileInFs(fs, containerHome, supervisorConf, this.hadoopConf);
         localResources.put("conf", Util.newYarnAppResource(fs, confDst));
 
-        LOG.info("localResources:"+localResources.toString()+"|"+localResources.size()+"|"+localResources.values());//tkl
         launchContext.setLocalResources(localResources);
 
         // CLC: command
         List<String> supervisorArgs = Util.buildSupervisorCommands(this.storm_conf,workingDirectory,stormHomeInZip);
-        LOG.info("supervisorArgs:"+supervisorArgs);//tkl
         launchContext.setCommands(supervisorArgs);
         try {
             LOG.info("Use NMClient to launch supervisors in container. ");

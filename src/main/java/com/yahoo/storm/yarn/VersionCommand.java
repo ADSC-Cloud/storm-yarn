@@ -18,9 +18,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;//tkl
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class VersionCommand implements Client.ClientCommand {
   private static final Logger LOG = LoggerFactory.getLogger(StormMasterCommand.class);
