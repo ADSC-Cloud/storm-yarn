@@ -93,7 +93,7 @@ public class Client {
         commands.put("stopSupervisors", new StormMasterCommand(StormMasterCommand.COMMAND.STOP_SUPERVISORS));
         commands.put("shutdown", new StormMasterCommand(StormMasterCommand.COMMAND.SHUTDOWN));
         commands.put("version", new VersionCommand());
-        commands.put("removeSupervisors", new StormMasterCommand(StormMasterCommand.COMMAND.REMOVE_SUPERVISORS));//tkl
+        commands.put("removeSupervisors", new StormMasterCommand(StormMasterCommand.COMMAND.REMOVE_SUPERVISORS));
         String commandName = null;
         String[] commandArgs = null;
         if (args.length < 1) {

@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 
 class VersionCommand implements Client.ClientCommand {
   private static final Logger LOG = LoggerFactory.getLogger(StormMasterCommand.class);
-  //private static final Logger LOG = LogManager.getLogger(StormMasterCommand.class);//tkl
 
   VersionCommand() {
   }

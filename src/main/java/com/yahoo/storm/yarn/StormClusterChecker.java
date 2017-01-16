@@ -55,12 +55,9 @@ class StormClusterChecker extends Thread {
                 if (totalUsed >= totalNumWorkers) {
                     LOG.info("Need more workers, add 1 supervisor");
                     master.addSupervisors(1);
-                //tkl/////////////////////////////////////////////////////////////////////////////////////
-                }else{//totalUsed < totalNumWorkers
+                }else{
                     int oneSupervisorWorkersNum = stormCluster.get_supervisors().get(0).get_num_workers();
-                    int numOfVacant = (totalNumWorkers - totalUsed) ;// oneSupervisorWorkersNum;
-                    LOG.info("oneSupervisorWorkersNum =" + oneSupervisorWorkersNum);
-                    LOG.info("numOfVacant =" + numOfVacant);
+                    int numOfVacant = (totalNumWorkers - totalUsed) ;
                     if(numOfVacant > oneSupervisorWorkersNum){
                         Iterator<Container> it = master.getContainerInfo().iterator();
                         String containerID;
@@ -71,10 +68,9 @@ class StormClusterChecker extends Thread {
                         }
                     }
                 }
-                ////////////////////////////////////////////tkl/////////////////////////////////
             } catch (TException e) {
                 nimbus = null;
             }
-        }//while
+        }
     }
 }

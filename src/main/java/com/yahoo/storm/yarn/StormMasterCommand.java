@@ -44,7 +44,7 @@ class StormMasterCommand implements Client.ClientCommand {
         START_SUPERVISORS,
         STOP_SUPERVISORS,
         SHUTDOWN,
-        REMOVE_SUPERVISORS //TKL
+        REMOVE_SUPERVISORS
     };
     COMMAND cmd;
 
@@ -59,8 +59,7 @@ class StormMasterCommand implements Client.ClientCommand {
         opts.addOption("appId", true, "(Required) The storm clusters app ID");
 
         opts.addOption("output", true, "Output file");
-        opts.addOption("supervisors", true, "(Required for addSupervisors) The # of supervisors to be added");//??????????/??????
-        //tkl
+        opts.addOption("supervisors", true, "(Required for addSupervisors) The # of supervisors to be added");
         opts.addOption("supervisor", true, "(Required for removeSupervisors) the supervisor to be remove");
 
         return opts;
@@ -91,8 +90,8 @@ class StormMasterCommand implements Client.ClientCommand {
             storm = StormOnYarn.attachToApp(appId, stormConf);
             StormMaster.Client client = storm.getClient();
             switch (cmd) {
-            case REMOVE_SUPERVISORS://tkl
-                String supversior = cl.getOptionValue("supervisor");// attention !   supervisors <=>supervisor
+            case REMOVE_SUPERVISORS:
+                String supversior = cl.getOptionValue("supervisor");
                 try {
                     client.removeSupervisors(supversior);
                 } catch (TTransportException ex) {

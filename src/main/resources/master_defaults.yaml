@@ -23,24 +23,17 @@ master.timeout.secs: 1000
 yarn.report.wait.millis: 10000
 nimbusui.startup.ms: 10000
 
-#tkl
 storm.thrift.transport: "org.apache.storm.security.auth.SimpleTransportPlugin"
 nimbus.thrift.port: 6627
 nimbus.queue.size: 100000
 nimbus.thrift.threads: 64
 nimbus.thrift.max_buffer_size: 1048576
 
-#tkl
 drpc.thrift.transport: "org.apache.storm.security.auth.SimpleTransportPlugin"
 drpc.port: 9000
 drpc.queue.size: 128
 drpc.worker.threads: 64
 drpc.max_buffer_size: 1048576
-
-
-
-
-
 
 ui.port: 7070
 
@@ -59,6 +52,4 @@ storm.messaging.netty.max_wait_ms: 5000
 # used when the application is executed on the YARN cluster.  To find this value, run
 # "yarn classpath" on the target machines.
 #
-#storm.yarn.yarn_classpath: "/usr/hadoop-2.7.3/etc/hadoop:/usr/hadoop-2.7.3/share/hadoop/common/*:/usr/hadoop-2.7.3/share/hadoop/common/lib/*:/usr/hadoop-2.7.3/share/hadoop/hdfs/*:/usr/hadoop-2.7.3/share/hadoop/hdfs/lib/*:/usr/hadoop-2.7.3/share/hadoop/mapreduce/*:/usr/hadoop-2.7.3/share/hadoop/mapreduce/lib/*:/usr/hadoop-2.7.3/share/hadoop/yarn/*:/usr/hadoop-2.7.3/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/apachestormonyarn/stormOnYARNwithDRS/target:./storm/storm-1.0.1/*:./storm/storm-1.0.1/lib/*:/usr/hadoop-2.7.3/tmp/nm-local-dir/filecache/10/storm.zip/storm-1.0.1/lib/*:/usr/hadoop-2.7.3/tmp/nm-local-dir/filecache/10/storm.zip/storm-1.0.1/*:/usr/hadoop-2.7.3/tmp/nm-local-dir/filecache/11/storm.zip/storm-1.0.1/lib/*:/usr/hadoop-2.7.3/tmp/nm-local-dir/filecache/11/storm.zip/storm-1.0.1/*"
-
-#storm.yarn.docker_image_name: "sequenceiq/hadoop-docker:2.7.0"
+#storm.yarn.yarn_classpath: ""

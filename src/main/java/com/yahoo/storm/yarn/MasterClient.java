@@ -45,7 +45,7 @@ public class MasterClient extends ThriftClient {
 
     @SuppressWarnings("rawtypes")
     public MasterClient(Map conf, String host, int port, Integer timeout) throws TTransportException {
-        super(conf, Config.MASTER_THRIFT_TYPE, host, port, timeout);//tkl
+        super(conf, Config.MASTER_THRIFT_TYPE, host, port, timeout);
         _client = new StormMaster.Client(_protocol);
     }
 

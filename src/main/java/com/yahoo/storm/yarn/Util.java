@@ -160,7 +160,6 @@ class Util {
         LocalResourceVisibility.APPLICATION);
   }
 
-  //tkl//////////////////////
   private static void CreateLog4j2XML(OutputStream out) throws IOException {
       Enumeration<URL> log4j2_xml_urls;
       log4j2_xml_urls = Thread.currentThread().getContextClassLoader().getResources("log4j2.xml");
@@ -198,7 +197,7 @@ class Util {
       }
       throw new IOException("Failed to locate a log4j2.xml");
   }
-    //tkl/////////////////////
+
   @SuppressWarnings("rawtypes")
   private static List<String> buildCommandPrefix(Map conf, String childOptsKey)
           throws IOException {
@@ -227,8 +226,7 @@ class Util {
       List<String> toRet =
               buildCommandPrefix(conf, org.apache.storm.Config.UI_CHILDOPTS);
       final String host = InetAddress.getLocalHost().getHostName();
-      toRet.add("-Dstorm.options=" + org.apache.storm.Config.NIMBUS_SEEDS + "=[\""+host+"\"]");//tkl
-      //toRet.add("-Dstorm.options=" + org.apache.storm.Config.NIMBUS_HOST + "=localhost");
+      toRet.add("-Dstorm.options=" + org.apache.storm.Config.NIMBUS_SEEDS + "=[\""+host+"\"]");
       toRet.add("-Dlogfile.name=" + System.getenv("STORM_LOG_DIR") + "/ui.log");
       toRet.add("org.apache.storm.ui.core");
       return toRet;
@@ -246,10 +244,10 @@ class Util {
   }
 
   @SuppressWarnings("rawtypes")
-  static List<String> buildSupervisorCommands(Map conf,String /*tkl*/workingDirectory,String stormHomeInZip) throws IOException {
+  static List<String> buildSupervisorCommands(Map conf,String workingDirectory,String stormHomeInZip) throws IOException {
       List<String> toRet =
               buildCommandPrefix(conf, org.apache.storm.Config.NIMBUS_CHILDOPTS);
-      //tkl///////////////
+
       for(int i=0;i<toRet.size();i++){
           if(toRet.get(i).contains("-Dstorm.home=")){
             toRet.remove(i);
@@ -257,9 +255,6 @@ class Util {
           }
       }
       toRet.add("-Dstorm.log.dir="+ ApplicationConstants.LOG_DIR_EXPANSION_VAR);
-      //toRet.add("-Dworker.logdir="+ ApplicationConstants.LOG_DIR_EXPANSION_VAR);
-      //tkl//////////////////////////////////////////
-
       toRet.add("-Dlogfile.name=" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/supervisor.log");
       toRet.add("org.apache.storm.daemon.supervisor");
 

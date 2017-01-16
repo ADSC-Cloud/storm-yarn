@@ -67,7 +67,7 @@ public class StormMasterServerHandler implements StormMaster.Iface {
         try {
             String host_addr = InetAddress.getLocalHost().getHostAddress();
             LOG.info("Storm master host:" + host_addr);
-            _storm_conf.put(Config.NIMBUS_SEEDS, Arrays.asList(new String[]{host_addr}));//tkl
+            _storm_conf.put(Config.NIMBUS_SEEDS, Arrays.asList(new String[]{host_addr}));
 
         } catch (UnknownHostException ex) {
             LOG.warn("Failed to get IP address of local host");
@@ -108,13 +108,12 @@ public class StormMasterServerHandler implements StormMaster.Iface {
         _client.addSupervisors(number);
     }
 
-    //tkl///////////////////////////////////////////////////////////////////////////////
     @Override
     public void removeSupervisors(String hostname) throws TException {
         LOG.info("remove supervisors...");
         _client.removeSupervisors(hostname);
     }
-    //tkl//////////////////////////////////////////////////////////////////////////////
+
     class StormProcess extends Thread {
         Process _process;
         String _name;
@@ -240,7 +239,6 @@ public class StormMasterServerHandler implements StormMaster.Iface {
         _masterServer.stop();
     }
 
-    ///tkl  get all container info
     public Set<Container> getContainerInfo(){
         LOG.info("get all container info...");
         return _client.getAllContainerInfo();

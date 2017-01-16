@@ -140,7 +140,7 @@ public class MasterServer extends ThriftServer {
 
         final String host = InetAddress.getLocalHost().getHostName();
 
-        storm_conf.put("nimbus.seeds", Arrays.asList(new String[]{host}));//tkl
+        storm_conf.put("nimbus.seeds", Arrays.asList(new String[]{host}));
 
         StormAMRMClient rmClient =
                 new StormAMRMClient(appAttemptID, storm_conf, hadoopConf);
@@ -228,8 +228,7 @@ public class MasterServer extends ThriftServer {
                          StormMasterServerHandler handler) {
         super(storm_conf,
                 new StormMaster.Processor<StormMaster.Iface>(handler),
-                Config.MASTER_THRIFT_TYPE);//tkl
-                //Utils.getInt(storm_conf.get(Config.MASTER_THRIFT_PORT)));
+                Config.MASTER_THRIFT_TYPE);
         try {
 
             _handler = handler;

@@ -237,12 +237,6 @@ public class StormOnYarn {
             env.put("JAVA_HOME", java_home);
         LOG.info("Using JAVA_HOME = [" + env.get("JAVA_HOME") + "]");
 
-        //tkl  for docker
-        String docker_image = (String) _stormConf.get("storm.yarn.docker_image_name");
-        if(docker_image !=null && !docker_image.isEmpty()){
-            env.put("yarn.nodemanager.docker-container-executor.image-name",docker_image);
-        }
-
         env.put("appJar", appMasterJar);
         env.put("appName", appName);
         env.put("appId", new Integer(_appId.getId()).toString());
@@ -256,9 +250,9 @@ public class StormOnYarn {
             vargs.add(env.get("JAVA_HOME") + "/bin/java");
         else
             vargs.add("java");
-        vargs.add("-Dstorm.home=./storm/" + stormHomeInZip);//tkl
-        //vargs.add("-Dstorm.home=./storm/" + stormHomeInZip + "/");
+        vargs.add("-Dstorm.home=./storm/" + stormHomeInZip);
         vargs.add("-Dlogfile.name=" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/master.log");
+
         //vargs.add("-verbose:class");
         vargs.add("MasterServer");
         vargs.add("1>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stdout");

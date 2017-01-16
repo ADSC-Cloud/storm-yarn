@@ -56,7 +56,7 @@ class LaunchCommand implements Client.ClientCommand {
     }
     Map stormConf = Config.readStormConfig(config_file);
     
-    String appName = cl.getOptionValue("appname", "DRS-Storm-on-Yarn");
+    String appName = cl.getOptionValue("appname", "Storm-on-Yarn");
     String queue = cl.getOptionValue("queue", "default");
 
     String storm_zip_location = cl.getOptionValue("stormZip");
