@@ -26,7 +26,6 @@ in progress.
 * Robert Evans ([@revans2](https://github.com/revans2))
 * Derek Dagit ([@d2r](https://github.com/d2r))
 * Nathan Roberts ([@ynroberts](https://github.com/ynroberts))
-* Xin Wang ([@vesense](https://github.com/vesense))
 
 ## Mailing list
 
@@ -35,7 +34,8 @@ Feel free to ask questions on storm-yarn's mailing list: http://groups.google.co
 ## Prerequisite
 
 Please install the following software first:
-   * Java 7
+   * Java 8
+   * Maven 3
    
 ## Build
 
@@ -114,9 +114,19 @@ For a full list of storm-yarn commands and options you can run
 
 ## Known Issues:
 
-There is no failover when nimbus goes down. Still working on it.
+The is no failover when nimbus goes down. Still working on it.
 
 There is no simple way to get to the logs for the different processes.
+
+## New Features:
+
+The version of storm update to 1.0.1.
+
+The StormClusterChecker class is is able to monitor the storm cluster. And it can adjust the number of supervisor based on usage of system resources.
+
+In order to monitor resources, we add the function of removeSupervisors. Its function be opposite to addSupervisors.
+
+From the logback logging framework to log4j2.
 
 ## License
 
